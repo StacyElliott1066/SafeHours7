@@ -1,9 +1,9 @@
 workflows:
   build-ios:
     name: Build SafeHours iOS
-  environment:
-  node: 20.11.0
-  xcode: latest
+    environment:
+      node: 20.11.0
+      xcode: latest
     scripts:
       - name: Install dependencies
         script: |
