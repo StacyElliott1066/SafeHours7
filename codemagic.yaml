@@ -2,21 +2,22 @@ workflows:
   build-ios:
     name: Build SafeHours iOS
     environment:
-      vars:
-        PACKAGE_MANAGER: npm
       node: 18.16.0
       xcode: latest
     scripts:
       - name: Install dependencies
-        script: npm install
+        script: |
+          npm ci
       - name: Build the web app
-        script: npm run build
-      - name: Copy web assets to iOS
-        script: npx cap sync ios
+        script: |
+          echo "Starting build..."
+          npm run build
+      - name: Sync Capacitor to iOS
+        script: |
+          npx cap sync ios
     artifacts:
       - build/ios/ipa/*.ipa
     publishing:
       email:
         recipients:
-          - mr.stacy.m.elliott@email.com
-
+          - mr.stacy.m.elliott@gmail.com
