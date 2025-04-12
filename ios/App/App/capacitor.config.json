@@ -1,0 +1,6 @@
+{
+	"appId": "com.safehours.app",
+	"appName": "safehours",
+	"webDir": "dist",
+	"packageClassList": []
+}
