@@ -1,20 +1,14 @@
 workflows:
-  build-ios:
+  build_ios:
     name: Build SafeHours iOS
     environment:
-      node: 20.11.0
+      vars:
+        NODE_VERSION: 18.17.1
       xcode: latest
     scripts:
-      - name: Install dependencies
-        script: |
-          npm ci
-      - name: Build the web app
-        script: |
-          echo "Starting build..."
-          npm run build
-      - name: Sync Capacitor to iOS
-        script: |
-          npx cap sync ios
+      - npm install
+      - npm run build
+      - npx cap sync ios
     artifacts:
       - build/ios/ipa/*.ipa
     publishing:
